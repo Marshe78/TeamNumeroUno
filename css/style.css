@@ -1,0 +1,61 @@
+
+.h1{
+    text-align: center;
+    color: red;
+    position: absolute;
+                top: 10%;
+                right: 25%;
+    
+    
+    
+    
+      font-size: 100px;
+      font-family: Brush Script MT, Brush Script Std, cursive;
+      
+      transform: translateY(-300px);
+      animation: 1.5s slideIn ease-in-out forwards 0.5s;
+      
+      opacity: 0;
+      position: relative;
+      bottom: 25%;
+      margin-left:50%;
+    }
+    
+    .h1::before {
+        content: '';
+        width: 0%;
+        height: 100px;
+        
+        
+                
+        animation: 0.5s underline ease-in-out forwards 0.5s;
+        mix-blend-mode: screen;
+    }
+    
+    
+    
+    @keyframes skewBg {
+      0% {
+        transform: scale(.5);
+      }
+      100% {
+        transform: scale(0.5);
+      }
+    }
+    
+    @keyframes underline {
+      100% {
+        width: 100%;
+      }
+    }
+    
+    @keyframes slideIn {
+      100% {
+        transform: translateY(0px);
+        opacity: 1;
+      }
+    }
+
+
+
+
