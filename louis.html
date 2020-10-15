@@ -12,42 +12,122 @@
 
 <body>
 
-    <div class="container">
+    <form action='Ascenseur.html' method="POST">
 
-        <nav class="nav">
-            <a href="index.html">Index</a>
-            <a href="quentin.html">Quentin</a>
-            <a href="khalid.html">Khalid</a>
-            <a href="cha.html">Charlotte</a>
-        </nav>
+        <div class="fleches">
+            <input type="button" id='up' value="" onclick=goUp();>
+        </div>
 
-        <section class="section"> 
+        <div class="fleches">
+            <input type="button" id='down' value="" onclick=goDown();>
+        </div>
 
-            <p>Je me présente je m'appelle &copy;Louis Poulin</p>
+    </form>
 
-        </section>
+     <h3>Etage :</h3><div id="monEtage"></div>
 
-        
+    <div class="ascenseur">
+
+        <img src="img/ascenseur1.png" height="500px" width="300px">
 
     </div>
 
-    <style>
+</html>
 
-        .container{
-            width: 80%;
-            display: flex;
-            justify-content: center;
+<!-- Javascript -->
+<script>
+    //Je pars du principe que l'ascenseur part de l'étage 0
+    let etage = 0;
+
+    // L'étage max que l'ascenseur peut atteindre
+    let max = 6;
+
+    //Selectionne la div 'monEtage' puis lui donne un contenu de 1
+    let divEtage = document.getElementById('monEtage')
+    divEtage.textContent = 0;
+
+    //fonction pour monter
+    //Si l'ascenseur atteint le 6ème étage, il ne peut plus monter
+
+    function goUp() {
+        if (etage == max) {
+            alert('Vous êtes arrivé tout en haut !')
+        } else {
+            etage++;
+            divEtage.textContent = etage;
         }
 
-        a{
-            border: 2px solid black;
-            background: yellow;
-            color: black;
-            text-decoration: none;
-            border-radius: 10%;
-        }
-    </style>
+    }
 
+    //fonction pour descendre
+    //Si l'ascenseur atteint l'étage 0, il ne peut plus descendre
+
+    function goDown() {
+        if (etage == 0) {
+            alert('Vous êtes déjà tout en bas !')
+        } else {
+            etage--;
+            divEtage.textContent = etage;
+        }
+    }
+</script>
+
+<!-- CSS -->
+<style>
+    body{
+        background: #252525;
+    }
+    .ascenseur {
+        border: 5px solid black;
+        width: 300px;
+        height: 500px;
+        position: absolute;
+        left: 800px;
+        top: 250px;
+        text-align: center;
+        font-size: 2vw;
+    }
+
+    #monEtage {
+        font-size: 3vw;
+        color: red;
+        display: flex;
+        justify-content: center;
+    }
+
+    h3{
+        display: flex;
+        justify-content: center;
+        color: white;
+    }
+
+    #up {
+        width: 0;
+        height: 0;
+
+        border-right: 16px solid transparent;
+        border-left: 16px solid transparent;
+
+        border-bottom: 20px solid green;
+    }
+
+    #down {
+        width: 0;
+        height: 0;
+
+        border-right: 16px solid transparent;
+        border-left: 16px solid transparent;
+
+        border-top: 20px solid red;
+    }
+
+    .fleches {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 30px 0 0;
+    }
+</style>
 
 </body>
 
